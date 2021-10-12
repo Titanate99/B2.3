@@ -24,7 +24,8 @@ import random as r
 import math 
 import numpy as np
 from pylab import *
-from scipy.integrate import quad
+from scipy.integrate import quad, simpson
+import matplotlib.pyplot as plt
 
 #rand_vx = r.sample(range(10, 60), 50)
 """
@@ -67,15 +68,36 @@ out = (quad(x_range,a,b))
 print(out)
 """
 
-v = np.linspace(-10,10,50)
 
 
-def make_gauss(N, sigma, mu):
-    k = N / (sigma * math.sqrt(2*math.pi))
+def make_gauss(x, sigma, mu):
+    y = []
+    k = 1 / (sigma * math.sqrt(2*math.pi))
     s = -1.0 / (2 * sigma * sigma)
-    def f(x):
-        return k * math.exp(s * (x - mu)*(x - mu))
-    return f
-lit = np.arange(0,10)
+    for i in range(len(x)):
+        a = k * math.exp(s * (x[i] - mu)*(x[i] - mu))
+        y.append(a)
+    return y
 
-print(quad(make_gauss(lit, 1, 0), -inf, inf))
+
+
+
+
+x = np.linspace(0,1,100)
+y = make_gauss(x,1,0)
+
+print(x)
+print(y)
+
+t= trapz(y,x)
+
+#tried to do definite points using quad, but only accepted functions
+a = 0
+b = 5
+#q = quad(y,a,b)
+
+plt.plot(x,y)
+print(t)
+
+
+
