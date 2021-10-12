@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct 12 14:33:46 2021
+
+@author: nate_mac
+"""
+
+either continuous function (inf,-inf)
+or definite set of points integrated
+if we can ref f(x) in low-order poly
+'gaussian quadriture'
+
+spline: piecewise combination of low-order polynomials connected smooly together
+
+e^ix = cosx + isinx
+
+x.cumsum()  - function to call integration by vertical rectangles (x slices)
+    most basic way to integrate
+    
+cipy.integrate.trapezoid() -    connects points of integration
+
+next up is polynomials aka scipy.inteegrate.simps()
+    more accurate, requires quadratics to go from lines -> curves connecting
+    
+after poly: easier to shrink your dx*dy boxes, than add powers
+    
+    
+
+N=logspace(0,5,100) n^0 -> n^5 with 100 points between
